@@ -1,0 +1,79 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="ly.rrnjnx.com.jshape_common" >
+    <!-- Required -->
+    <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
+    <!-- Optional. Required for location feature -->
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+
+    <!--<application>-->
+        <!--&lt;!&ndash; Required SDK核心功能&ndash;&gt;-->
+        <!--<activity-->
+            <!--android:name="cn.jiguang.share.android.ui.JiguangShellActivity"-->
+            <!--android:configChanges="keyboardHidden|orientation|screenSize"-->
+            <!--android:exported="true"-->
+            <!--android:launchMode="singleTask"-->
+            <!--android:screenOrientation="portrait"-->
+            <!--android:theme="@android:style/Theme.Translucent.NoTitleBar"-->
+            <!--android:windowSoftInputMode="stateHidden|adjustResize">-->
+            <!--&lt;!&ndash; Optional QQ分享回调&ndash;&gt;-->
+            <!--&lt;!&ndash; scheme为“tencent”前缀再加上QQ开发者应用的appID；例如appID为123456，则scheme＝“tencent123456” &ndash;&gt;-->
+            <!--<intent-filter>-->
+                <!--<data android:scheme="tencent1106011004" />-->
+                <!--<action android:name="android.intent.action.VIEW" />-->
+                <!--<category android:name="android.intent.category.BROWSABLE" />-->
+                <!--<category android:name="android.intent.category.DEFAULT" />-->
+            <!--</intent-filter>-->
+
+            <!--&lt;!&ndash; Optional 新浪微博分享回调 &ndash;&gt;-->
+            <!--<intent-filter>-->
+                <!--<action android:name="com.sina.weibo.sdk.action.ACTION_SDK_REQ_ACTIVITY" />-->
+                <!--<category android:name="android.intent.category.DEFAULT" />-->
+            <!--</intent-filter>-->
+
+            <!--&lt;!&ndash; Optional 新浪微博私信回调&ndash;&gt;-->
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.VIEW" />-->
+                <!--<category android:name="android.intent.category.DEFAULT" />-->
+                <!--<category android:name="android.intent.category.BROWSABLE" />-->
+                <!--<data android:scheme="jsharesdk" android:host="sinaweibo"/>-->
+            <!--</intent-filter>-->
+        <!--</activity>-->
+
+        <!--&lt;!&ndash; Optional 微信分享回调,wxapi必须在包名路径下，否则回调不成功&ndash;&gt;-->
+        <!--&lt;!&ndash;<activity&ndash;&gt;-->
+            <!--&lt;!&ndash;android:name="ly.rrnjnx.com.jshape_common.wxapi.WXEntryActivity"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:theme="@android:style/Theme.Translucent.NoTitleBar"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:exported="true" />&ndash;&gt;-->
+        <!--&lt;!&ndash; Required. For publish channel feature &ndash;&gt;-->
+        <!--&lt;!&ndash; JPUSH_CHANNEL 是为了方便开发者统计APK分发渠道。&ndash;&gt;-->
+        <!--&lt;!&ndash; 例如: &ndash;&gt;-->
+        <!--&lt;!&ndash; 发到 Google Play 的APK可以设置为 google-play; &ndash;&gt;-->
+        <!--&lt;!&ndash; 发到其他市场的 APK 可以设置为 xxx-market。 &ndash;&gt;-->
+        <!--&lt;!&ndash; 目前这个渠道统计功能的报表还未开放。&ndash;&gt;-->
+        <!--<meta-data-->
+            <!--android:name="JPUSH_CHANNEL"-->
+            <!--android:value="developer-default" />-->
+        <!--&lt;!&ndash; Required. AppKey copied from Portal &ndash;&gt;-->
+        <!--<meta-data-->
+            <!--android:name="JPUSH_APPKEY"-->
+            <!--android:value="d14e4e7131ba336d4d4ee092" />-->
+
+    <!--</application>-->
+</manifest>

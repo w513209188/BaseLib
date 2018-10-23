@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <com.wb.baselib.view.MyViewPager
+            android:id="@+id/main_vp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/opop" />
+        <View
+            android:id="@+id/opop"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_above="@+id/tabbar" />
+        <com.wb.baselib.view.JPTabBar
+            android:layout_alignParentBottom="true"
+            xmlns:jp="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/tabbar"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:background="#fff"
+            jp:TabTextSize="12sp"
+            jp:TabAnimate="Jump"
+            jp:TabGradientEnable="true"
+            />
+    </RelativeLayout>
+</LinearLayout>

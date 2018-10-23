@@ -1,0 +1,110 @@
+ext.deps = [:]
+//版本号
+def versions = [:]
+versions.support = "25.0.2"
+versions.runner="1.0.1"
+versions.espresso="3.0.1"
+versions.multidex = "1.0.2"
+versions.retrofit="2.1.0"
+
+versions.DialogUtil="1.2.5"
+versions.swipebacklayout="1.0.5"
+versions.statusbarutil="1.4.0"
+versions.rxpermissions="0.9.4"
+versions.progress="1.7"
+versions.glide="3.7.0"
+versions.finestwebview="1.2.7"
+versions.UpdatePlugin="2.4"
+versions.loadinglibrary="1.0.2"
+versions.ClipView="v1.0.1"
+versions.banner="1.4.8"
+versions.ViewPagerIndicator="1.1.4"
+versions.arouterApi="1.3.1"
+versions.gson="2.4"
+versions.Luban="1.1.8"
+versions.okhttp="3.4.2"
+versions.okio="1.7.0"
+versions.loggingInterceptor="3.4.2"
+versions.videoplayer="1.7.2-snapshot"
+versions.livesdkppt="1.3.5"
+versions.picasso="2.5.2"
+versions.materialDialogs="0.9.4.5"
+versions.videoPlayback="1.4.4"
+
+ext.deps = deps
+//android必备
+def support = [:]
+support.recyclerview="com.android.support:recyclerview-v7:$versions.support"
+support.app_compat = "com.android.support:appcompat-v7:$versions.support"
+support.runner="com.android.support.test:runner:$versions.runner"
+support.espresso="com.android.support.test.espresso:espresso-core:$versions.espresso"
+support.multidex = "com.android.support:multidex:$versions.multidex"
+support.design="com.android.support:design:$versions.support"
+support.constraintLayout="com.android.support.constraint:constraint-layout:1.1.0"
+deps.support = support
+//rxjava
+def retrofit = [:]
+retrofit.retrofit = "com.squareup.retrofit2:retrofit:$versions.retrofit"
+retrofit.adapter = "com.jakewharton.retrofit:retrofit2-rxjava2-adapter:1.0.0"
+retrofit.gson = "com.squareup.retrofit2:converter-gson:$versions.retrofit"
+retrofit.rxandroid="io.reactivex.rxjava2:rxandroid:2.0.1"
+retrofit.rxjava="io.reactivex.rxjava2:rxjava:2.0.1"
+deps.retrofit = retrofit
+//okhttp相关
+def okhttp = [:]
+okhttp.okhttp="com.squareup.okhttp3:okhttp:$versions.okhttp"
+okhttp.okio="com.squareup.okio:okio:$versions.okio"
+okhttp.interceptor="com.squareup.okhttp3:logging-interceptor:$versions.loggingInterceptor"
+deps.okhttp = okhttp
+
+//百家云
+def baijia = [:]
+baijia.videoplayer="com.baijia.player:videoplayer:$versions.videoplayer"
+baijia.liveplayersdkcore="com.baijia.live:liveplayer-sdk-core:1.4.2"
+baijia.livesdkppt="com.baijia.live:liveplayer-sdk-core-ppt:1.4.2"
+baijia.picasso="com.squareup.picasso:picasso:$versions.picasso"
+baijia.materialDialogs="com.afollestad.material-dialogs:commons:$versions.materialDialogs"
+baijia.videoPlayback="com.baijia.player:video-playback:$versions.videoPlayback"
+baijia.circleimageview="de.hdodenhof:circleimageview:2.2.0"
+baijia.commonimagecrop="com.baijia.common:common-image-crop:1.2.2"
+baijia.commonpermission="com.baijia.common:common-permission:1.1.0"
+deps.baijia = baijia
+//第三方jar
+deps.DialogUtil= "com.github.hss01248:DialogUtil:$versions.DialogUtil"
+deps.swipebacklayout="cn.bingoogolapple:bga-swipebacklayout:$versions.swipebacklayout"
+deps.statusbarutil="com.jaeger.statusbarutil:library:$versions.statusbarutil"
+deps.rxpermissions="com.tbruyelle.rxpermissions2:rxpermissions:$versions.rxpermissions@aar"
+deps.progress="com.pnikosis:materialish-progress:$versions.progress"
+deps.glide="com.github.bumptech.glide:glide:$versions.glide"
+deps.finestwebview="com.thefinestartist:finestwebview:$versions.finestwebview"
+deps.UpdatePlugin="org.lzh.nonview.updateplugin:UpdatePlugin:$versions.UpdatePlugin"
+deps.loadinglibrary="tech.michaelx.loadinglibrary:loadinglibrary:$versions.loadinglibrary"
+deps.ClipView="com.github.arvinljw:ClipView:$versions.ClipView"
+deps.banner="com.youth.banner:banner:$versions.banner"
+deps.ViewPagerIndicator="com.shizhefei:ViewPagerIndicator:$versions.ViewPagerIndicator"
+deps.arouterApi="com.alibaba:arouter-api:$versions.arouterApi"
+deps.gson="com.google.code.gson:gson:$versions.gson"
+deps.Luban="top.zibin:Luban:$versions.Luban"
+deps.payUtils="com.github.w513209188:payUtils:v1.0.5"
+deps.CircleProgressView="com.github.BolexLiu:CircleProgressView:v1.0.0"
+deps.calendarview="com.haibin:calendarview:3.3.3"
+deps.cornerlabelview="com.github.czy1121:cornerlabelview:1.0.3"
+deps.lottie="com.airbnb.android:lottie:2.1.0"
+deps.ariaCore="com.arialyy.aria:aria-core:3.4.16"
+ext.deps = deps
+
+def build_versions = [:]
+build_versions.min_sdk = 16
+build_versions.target_sdk = 27
+build_versions.build_tools = "27.0.2"
+ext.build_versions = build_versions
+
+def addRepos(RepositoryHandler handler) {
+    handler.google()
+    handler.jcenter()
+    handler.mavenCentral()
+    handler.maven { url "https://jitpack.io" }
+    handler.maven { url "https://raw.github.com/baijia/maven/master/" }
+}
+
+ext.addRepos = this.&addRepos

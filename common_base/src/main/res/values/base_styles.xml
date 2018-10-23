@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimaryDark">@color/statusbar_color_K</item>
+        <!--colorPrimary对应ActionBar的颜色-->
+        <item name="colorPrimary">@color/statusbar_color_K</item>
+        <!-- 底部导航栏的颜色 -->
+        <item name="android:navigationBarColor">@color/statusbar_color_K</item>
+        <item name="android:windowBackground">@color/windowBackground</item>
+        <!--colorAccent 对应EditText编辑时、RadioButton选中、CheckBox等选中时的颜色-->
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowAnimationStyle">@style/activity_dh</item>
+    </style>
+    <style name="AppTheme.Transparent" >
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowAnimationStyle">@style/activity_dh</item>
+    </style>
+    <!--activity切换动画-->
+    <style name="activity_dh" parent="@android:style/Animation">
+        <!--<item name="android:activityOpenEnterAnimation">@anim/slide_right_in</item>-->
+        <!--<item name="android:activityOpenExitAnimation">@anim/slide_left_out</item>-->
+        <!--<item name="android:activityCloseEnterAnimation">@anim/slide_left_in</item>-->
+        <!--<item name="android:activityCloseExitAnimation">@anim/slide_right_out</item>-->
+    </style>
+    <style name="MultipleStatusView"/>
+    <style name="MultipleStatusView.Content">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:layout_margin">8dp</item>
+        <item name="android:textColor">#a9b7b7</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+</resources>

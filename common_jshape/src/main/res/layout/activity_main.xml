@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="cn.jiguang.share.demo.MainActivity">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_marginTop="60dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/btn_share"
+            android:text="分享(进入分享平台选择)"
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+        </Button>
+        <Button
+            android:id="@+id/btn_share_pop"
+            android:text="分享面板"
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+        </Button>
+
+        <Button
+            android:id="@+id/btn_login"
+            android:text="授权"
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+        </Button>
+        <Button
+            android:id="@+id/btn_getuser"
+            android:text="获取用户信息"
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+        </Button>
+
+
+    </LinearLayout>
+</RelativeLayout>

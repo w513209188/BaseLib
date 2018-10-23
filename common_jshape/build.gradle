@@ -1,0 +1,43 @@
+apply plugin: 'com.android.library'
+apply plugin: 'com.github.dcendents.android-maven'
+group = '513209188@qq.com'
+android {
+    compileSdkVersion build_versions.target_sdk
+
+    defaultConfig {
+        minSdkVersion build_versions.min_sdk
+        targetSdkVersion build_versions.target_sdk
+        versionCode 1
+        versionName "1.0"
+        aaptOptions.cruncherEnabled = false
+        aaptOptions.useNewCruncher = false
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+
+
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile files('libs/jcore-android-1.2.0.jar')
+    compile files('libs/jshare-android-1.5.0.jar')
+    compile files('libs/jshare-facebook-android-1.5.0.jar')
+    compile files('libs/jshare-qq-android-1.5.0.jar')
+    compile files('libs/jshare-sina-android-1.5.0.jar')
+    compile files('libs/jshare-twitter-android-1.5.0.jar')
+    compile files('libs/jshare-wechat-android-1.5.0.jar')
+    api deps.support.app_compat
+//    compile 'com.android.support:appcompat-v7:25.0.2'
+}
+

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.wb.baselib.view.MultipleStatusView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/multiplestatusview"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:loadingView="@layout/custom_loading_view"
+    app:emptyView="@layout/custom_empty_view"
+    app:errorView="@layout/custom_error_view"
+    app:noNetworkView="@layout/custom_no_network_view"
+    app:contentView="@layout/public_resh_mgrideview"
+    />
