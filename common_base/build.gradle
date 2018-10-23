@@ -13,7 +13,7 @@ android {
         versionName "1.0"
     }
     packagingOptions {//加上这写代码
-        pickFirst 'META-INF/*'
+        exclude 'META-INF/rxjava.properties'
     }
     buildTypes {
         release {
@@ -32,10 +32,12 @@ dependencies {
 
     //    api deps.retrofit.retrofit
 
-    //    api deps.support.app_compat
+    //    //    api deps.support.app_compat
     compile 'com.squareup.retrofit2:retrofit:2.1.0'
 
-    //    api deps.retrofit.adapter
+    //
+
+    //    //    api deps.retrofit.adapter
     compile 'com.jakewharton.retrofit:retrofit2-rxjava2-adapter:1.0.0'
 
     //    api deps.retrofit.gson
@@ -119,5 +121,5 @@ dependencies {
     //    compile project(':common_postphoto')
     implementation 'me.jessyan:autosize:0.9.5'
     implementation project(':common_coorinator')
-    implementation project(':module_down')
+    implementation project(':common_down')
 }

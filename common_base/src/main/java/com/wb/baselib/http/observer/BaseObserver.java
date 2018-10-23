@@ -4,9 +4,9 @@ import android.content.Context;
 import android.util.Log;
 
 import com.wb.baselib.appconfig.AppConfigManager;
-import com.wb.baselib.event.RxBus;
 import com.wb.baselib.http.exception.ApiErrorHelper;
 import com.wb.baselib.http.exception.ApiException;
+import com.wb.rxbus.taskBean.RxBus;
 import com.wb.rxbus.taskBean.RxLoginBean;
 
 import io.reactivex.Observer;

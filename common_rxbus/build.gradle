@@ -21,7 +21,22 @@ android {
     }
 
 }
-
+allprojects {
+    repositories {
+        maven { url "https://jitpack.io" }
+    }
+}
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+        api deps.retrofit.retrofit
+////
+        api deps.support.app_compat
+////    compile 'com.squareup.retrofit2:retrofit:2.1.0'
+        api deps.retrofit.rxjava
+    api deps.retrofit.rxandroid
+//        api deps.retrofit.adapter
+////    compile 'com.jakewharton.retrofit:retrofit2-rxjava2-adapter:1.0.0'
+//
+//        api deps.retrofit.gson
+//    compile 'com.squareup.retrofit2:converter-gson:2.1.0'
 }

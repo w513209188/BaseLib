@@ -17,8 +17,7 @@ import com.jungan.www.common_down.call.VideoDeleteCall;
 import com.jungan.www.common_down.config.BjyPlayDownConfig;
 import com.jungan.www.common_down.config.DownVideoMessageTypeConfig;
 import com.jungan.www.common_down.tools.StriTools;
-import com.wb.baselib.event.RxBus;
-import com.wb.baselib.log.LogTools;
+import com.wb.rxbus.taskBean.RxBus;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -137,7 +136,6 @@ public class BjyBackPlayDownManager {
             @Override
             public void call(Subscriber<? super List<DownloadTask>> subscriber) {
                 List<DownloadTask> allVideo=getDownloadManager().getManager().getAllTasks();
-                LogTools.e("这个是allVideo"+allVideo.size()+"");
                 List<DownloadTask> newAllVideo=new ArrayList<>();
                 for(DownloadTask downloadTask:allVideo){
                     DownloadModel downloadModel=downloadTask.getDownloadInfo();

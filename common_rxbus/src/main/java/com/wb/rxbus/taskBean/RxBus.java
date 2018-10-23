@@ -1,4 +1,4 @@
-package com.wb.baselib.event;
+package com.wb.rxbus.taskBean;
 
 import android.support.annotation.NonNull;
 
