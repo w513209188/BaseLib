@@ -1,2 +1,2 @@
 include ':app'
-include ':common_base',':common_jpush',':common_jshape',':common_pop',':common_rxbus',':refresh-header',':refresh-layout'
+include ':common_down',':module_down',':common_coorinator',':common_base',':common_jpush',':common_jshape',':common_pop',':common_rxbus',':refresh-header',':refresh-layout'

@@ -1,0 +1,12 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.jungan.www.common_down" >
+    <application
+        android:allowBackup="true"
+        android:supportsRtl="true"
+        >
+        <service
+            android:name="com.baijiayun.download.DownloadService"
+            android:enabled="true"
+            android:exported="false"/>
+    </application>
+</manifest>

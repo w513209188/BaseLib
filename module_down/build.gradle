@@ -1,0 +1,64 @@
+//if (isModule.toBoolean()) {
+//    apply plugin: 'com.android.application'
+//} else {
+    apply plugin: 'com.android.library'
+apply plugin: 'com.github.dcendents.android-maven'
+group = '513209188@qq.com'
+//}
+
+android {
+    compileSdkVersion build_versions.target_sdk
+    defaultConfig {
+        minSdkVersion build_versions.min_sdk
+        targetSdkVersion build_versions.target_sdk
+        versionCode 1
+        versionName "1.0"
+        aaptOptions.cruncherEnabled = false
+        aaptOptions.useNewCruncher = false
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [moduleName: project.getName()]
+            }
+        }
+        packagingOptions {
+            exclude 'META-INF/rxjava.properties'
+        }
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        resourcePrefix "down_"
+//        if(isModule.toBoolean()){
+//            multiDexEnabled true
+//        }
+    }
+//    sourceSets {
+//        main {
+//            if (isModule.toBoolean()) {
+//                manifest.srcFile 'src/main/module/AndroidManifest.xml'
+//            } else {
+//                manifest.srcFile 'src/main/AndroidManifest.xml'
+//                //集成开发模式下排除debug文件夹中的所有Java文件
+//                java {
+//                    exclude 'debug/**'
+//                }
+//            }
+//        }
+//    }
+    buildTypes {
+        debug{
+            minifyEnabled false
+            debuggable true
+        }
+
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    compile project(':common_down')
+    api deps.cornerlabelview
+
+}

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="Down_LabelView">
+        <attr name="down_backgroundColor" format="color"/>
+        <attr name="down_textTitleColor" format="color"/>
+        <attr name="down_textContentColor" format="color"/>
+
+        <attr name="down_textTitle" format="string"/>
+        <attr name="down_textContent" format="string"/>
+
+        <attr name="down_textTitleSize" format="dimension"/>
+        <attr name="down_textContentSize" format="dimension"/>
+
+        <attr name="down_labelTopPadding" format="dimension"/>
+        <attr name="down_labelCenterPadding" format="dimension"/>
+        <attr name="down_labelBottomPadding" format="dimension"/>
+        <attr name="down_labelTopDistance" format="dimension"/>
+
+        <attr name="down_textTitleStyle">
+            <enum name="normal" value="0"/>
+            <enum name="italic" value="1"/>
+            <enum name="bold" value="2"/>
+        </attr>
+
+        <attr name="down_textContentStyle">
+            <enum name="normal" value="0"/>
+            <enum name="italic" value="1"/>
+            <enum name="bold" value="2"/>
+        </attr>
+
+        <attr name="down_direction">
+            <enum name="leftTop" value="-45"/>
+            <enum name="rightTop" value="45"/>
+        </attr>
+    </declare-styleable>
+</resources>

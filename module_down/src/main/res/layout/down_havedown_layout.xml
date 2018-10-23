@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="@color/white"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <com.wb.baselib.view.TopBarView xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/top_tb"
+        android:layout_width="match_parent"
+        app:fillStatusBar="false"
+        app:titleBarColor="@color/white"
+        app:titleBarHeight="50dp"
+        app:leftImageResource="@drawable/public_back_hs"
+        app:leftType="imageButton"
+        app:centerTextColor="@color/black"
+        app:centerText="课程缓存"
+        app:centerType="textView"
+        app:rightText="删除"
+        app:rightType="textView"
+        android:layout_height="wrap_content"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:background="@color/linen"/>
+    <com.wb.baselib.view.MultipleStatusView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/multiplestatusview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:loadingView="@layout/custom_loading_view"
+        app:emptyView="@layout/custom_empty_view"
+        app:errorView="@layout/custom_error_view"
+        app:noNetworkView="@layout/custom_no_network_view"
+        app:contentView="@layout/down_videosave_view"
+        />
+</LinearLayout>

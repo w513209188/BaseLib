@@ -1,0 +1,11 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.jungan.www.module_down" >
+    <application
+        >
+        <activity android:name=".ui.DownManagerActivity">
+        </activity>
+        <activity android:name=".ui.DownDoingVideoActivity"/>
+        <activity android:name=".ui.DownHaveVideoActivity"/>
+    </application>
+
+</manifest>

@@ -1,0 +1,18 @@
+<resources>
+    <string name="down_managerName">课程缓存</string>
+    <string name="down_doing_tx">正在下载</string>
+    <string name="down_message">温馨提示</string>
+    <string name="down_agin_delect">删除不可恢复，确认要删除？</string>
+    <string name="down_all_select">全选</string>
+    <string name="down_all_cancel">反选</string>
+    <string name="down_ok">确定</string>
+    <string name="down_cancel">取消</string>
+    <string name="down_delect">删除</string>
+    <string name="down_course_save">课程缓存</string>
+    <string name="down_video_start">开始下载</string>
+    <string name="down_video_go">继续下载</string>
+    <string name="down_video_finish">下载完成</string>
+    <string name="down_video_error">下载出错</string>
+    <string name="down_video_doing">正在下载</string>
+    <string name="down_video_paush">暂停</string>
+</resources>
