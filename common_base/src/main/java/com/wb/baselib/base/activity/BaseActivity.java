@@ -36,13 +36,13 @@ import java.util.Map;
 import cn.bingoogolapple.swipebacklayout.BGASwipeBackHelper;
 @Keep
 public abstract class BaseActivity extends RxAppCompatActivity implements BGASwipeBackHelper.Delegate, View.OnClickListener {
-    protected BGASwipeBackHelper mSwipeBackHelper;
+//    protected BGASwipeBackHelper mSwipeBackHelper;
     private Dialog mDiaLog;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         // 在 super.onCreate(savedInstanceState) 之前调用该方法
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-        initSwipeBackFinish();
+//        initSwipeBackFinish();
         if(!isAllImage()){
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                 setStatusBarColor(this.getResources().getColor(R.color.statusbar_color),0);
@@ -89,26 +89,26 @@ public abstract class BaseActivity extends RxAppCompatActivity implements BGASwi
         return true;
     }
 
-    /**
-     * 初始化滑动返回。在 super.onCreate(savedInstanceState) 之前调用该方法
-     */
-    private void initSwipeBackFinish() {
-        mSwipeBackHelper = new BGASwipeBackHelper(this, this);
-        // 下面几项可以不配置，这里只是为了讲述接口用法。
-        // 如果需要启用微信滑动返回样式，必须在 Application 的 onCreate 方法中执行 BGASwipeBackManager.getInstance().init(this)
-        // 设置滑动返回是否可用。默认值为 true
-        mSwipeBackHelper.setSwipeBackEnable(false);
-        // 设置是否仅仅跟踪左侧边缘的滑动返回。默认值为 true
-        mSwipeBackHelper.setIsOnlyTrackingLeftEdge(true);
-        // 设置是否是微信滑动返回样式。默认值为 true
-        mSwipeBackHelper.setIsWeChatStyle(false);
-        // 设置阴影资源 id。默认值为 R.drawable.bga_sbl_shadow
-        mSwipeBackHelper.setShadowResId(R.drawable.bga_sbl_shadow);
-        // 设置是否显示滑动返回的阴影效果。默认值为 true
-        mSwipeBackHelper.setIsNeedShowShadow(false);
-        // 设置阴影区域的透明度是否根据滑动的距离渐变。默认值为 true
-        mSwipeBackHelper.setIsShadowAlphaGradient(false);
-    }
+//    /**
+//     * 初始化滑动返回。在 super.onCreate(savedInstanceState) 之前调用该方法
+//     */
+//    private void initSwipeBackFinish() {
+//        mSwipeBackHelper = new BGASwipeBackHelper(this, this);
+//        // 下面几项可以不配置，这里只是为了讲述接口用法。
+//        // 如果需要启用微信滑动返回样式，必须在 Application 的 onCreate 方法中执行 BGASwipeBackManager.getInstance().init(this)
+//        // 设置滑动返回是否可用。默认值为 true
+//        mSwipeBackHelper.setSwipeBackEnable(false);
+//        // 设置是否仅仅跟踪左侧边缘的滑动返回。默认值为 true
+//        mSwipeBackHelper.setIsOnlyTrackingLeftEdge(true);
+//        // 设置是否是微信滑动返回样式。默认值为 true
+//        mSwipeBackHelper.setIsWeChatStyle(false);
+//        // 设置阴影资源 id。默认值为 R.drawable.bga_sbl_shadow
+//        mSwipeBackHelper.setShadowResId(R.drawable.bga_sbl_shadow);
+//        // 设置是否显示滑动返回的阴影效果。默认值为 true
+//        mSwipeBackHelper.setIsNeedShowShadow(false);
+//        // 设置阴影区域的透明度是否根据滑动的距离渐变。默认值为 true
+//        mSwipeBackHelper.setIsShadowAlphaGradient(false);
+//    }
 
     /**
      * 是否支持滑动返回。这里在父类中默认返回 true 来支持滑动返回，如果某个界面不想支持滑动返回则重写该方法返回 false 即可
@@ -136,18 +136,18 @@ public abstract class BaseActivity extends RxAppCompatActivity implements BGASwi
     public void onSwipeBackLayoutCancel() {
     }
 
-    /**
-     * 滑动返回执行完毕，销毁当前 Activity
-     */
-    @Override
-    public void onSwipeBackLayoutExecuted() {
-        mSwipeBackHelper.swipeBackward();
-    }
+//    /**
+//     * 滑动返回执行完毕，销毁当前 Activity
+//     */
+//    @Override
+//    public void onSwipeBackLayoutExecuted() {
+//        mSwipeBackHelper.swipeBackward();
+//    }
 
-    @Override
-    public void onBackPressed() {
-        mSwipeBackHelper.backward();
-    }
+//    @Override
+//    public void onBackPressed() {
+//        mSwipeBackHelper.backward();
+//    }
 
     /**
      * 设置状态栏颜色
