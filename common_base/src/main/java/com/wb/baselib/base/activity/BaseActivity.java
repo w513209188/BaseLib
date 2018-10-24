@@ -35,7 +35,7 @@ import java.util.Map;
 
 import cn.bingoogolapple.swipebacklayout.BGASwipeBackHelper;
 @Keep
-public abstract class BaseActivity extends RxAppCompatActivity implements BGASwipeBackHelper.Delegate, View.OnClickListener {
+public abstract class BaseActivity extends RxAppCompatActivity implements View.OnClickListener {
 //    protected BGASwipeBackHelper mSwipeBackHelper;
     private Dialog mDiaLog;
     @Override
@@ -110,31 +110,31 @@ public abstract class BaseActivity extends RxAppCompatActivity implements BGASwi
 //        mSwipeBackHelper.setIsShadowAlphaGradient(false);
 //    }
 
-    /**
-     * 是否支持滑动返回。这里在父类中默认返回 true 来支持滑动返回，如果某个界面不想支持滑动返回则重写该方法返回 false 即可
-     *
-     * @return
-     */
-    @Override
-    public boolean isSupportSwipeBack() {
-        return true;
-    }
-
-    /**
-     * 正在滑动返回
-     *
-     * @param slideOffset 从 0 到 1
-     */
-    @Override
-    public void onSwipeBackLayoutSlide(float slideOffset) {
-    }
-
-    /**
-     * 没达到滑动返回的阈值，取消滑动返回动作，回到默认状态
-     */
-    @Override
-    public void onSwipeBackLayoutCancel() {
-    }
+//    /**
+//     * 是否支持滑动返回。这里在父类中默认返回 true 来支持滑动返回，如果某个界面不想支持滑动返回则重写该方法返回 false 即可
+//     *
+//     * @return
+//     */
+//    @Override
+//    public boolean isSupportSwipeBack() {
+//        return true;
+//    }
+//
+//    /**
+//     * 正在滑动返回
+//     *
+//     * @param slideOffset 从 0 到 1
+//     */
+//    @Override
+//    public void onSwipeBackLayoutSlide(float slideOffset) {
+//    }
+//
+//    /**
+//     * 没达到滑动返回的阈值，取消滑动返回动作，回到默认状态
+//     */
+//    @Override
+//    public void onSwipeBackLayoutCancel() {
+//    }
 
 //    /**
 //     * 滑动返回执行完毕，销毁当前 Activity

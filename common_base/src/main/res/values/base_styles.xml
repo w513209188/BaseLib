@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="BaseAppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimaryDark">@color/statusbar_color_K</item>
         <!--colorPrimary对应ActionBar的颜色-->
         <item name="colorPrimary">@color/statusbar_color_K</item>
@@ -11,7 +11,7 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:windowAnimationStyle">@style/activity_dh</item>
     </style>
-    <style name="AppTheme.Transparent" >
+    <style name="BaseAppTheme.Transparent" >
         <item name="android:windowBackground">@android:color/transparent</item>
         <item name="android:windowIsTranslucent">true</item>
         <item name="android:windowAnimationStyle">@style/activity_dh</item>
