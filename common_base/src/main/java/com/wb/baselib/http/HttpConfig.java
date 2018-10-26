@@ -59,6 +59,7 @@ public class HttpConfig {
             httpConfig.mCacheTimeWithoutNet = httpConfigBuilder.mCacheTimeWithoutNet;
             httpConfig.mCacheTimeWithNet = httpConfigBuilder.mCacheTimeWithNet;
             httpConfig.mCacheSize = httpConfigBuilder.mCacheSize;
+            httpConfig.isReshConfig=httpConfigBuilder.isReshConfig;
         }
         Log.e("复杂",httpConfig.mBaseUrl);
         return httpConfig;
@@ -86,6 +87,7 @@ public class HttpConfig {
         mTimeRetryDelay = httpConfigBuilder.mTimeRetryDelay;
         mMaxRetryCount = httpConfigBuilder.mMaxRetryCount;
         isUseCustGson = httpConfigBuilder.isUseCustGson;
+        isReshConfig=httpConfigBuilder.isReshConfig;
     }
 
     public boolean isReshConfig() {
