@@ -1,5 +1,7 @@
 package com.wb.baselib.http;
 
+import android.util.Log;
+
 import java.io.File;
 import java.util.Map;
 
@@ -11,6 +13,7 @@ import retrofit2.Retrofit;
 
 public class HttpConfig {
     private static HttpConfig httpConfig;
+
     private String mBaseUrl;
     private int mConnectTimeout;
     private boolean mIsUseLog;
@@ -24,13 +27,15 @@ public class HttpConfig {
     private int mTimeRetryDelay;
     private int mMaxRetryCount;
     private boolean isUseCustGson;
-
+    private boolean isReshConfig;
     public static HttpConfig newInstance() {
+
         if (httpConfig == null) {
             synchronized (HttpConfig.class) {
                 httpConfig = new HttpConfig();
             }
         }
+        Log.e("这个是",httpConfig.mBaseUrl);
         return httpConfig;
     }
 
@@ -55,6 +60,7 @@ public class HttpConfig {
             httpConfig.mCacheTimeWithNet = httpConfigBuilder.mCacheTimeWithNet;
             httpConfig.mCacheSize = httpConfigBuilder.mCacheSize;
         }
+        Log.e("复杂",httpConfig.mBaseUrl);
         return httpConfig;
     }
 
@@ -80,6 +86,10 @@ public class HttpConfig {
         mTimeRetryDelay = httpConfigBuilder.mTimeRetryDelay;
         mMaxRetryCount = httpConfigBuilder.mMaxRetryCount;
         isUseCustGson = httpConfigBuilder.isUseCustGson;
+    }
+
+    public boolean isReshConfig() {
+        return isReshConfig;
     }
 
     public boolean isUseCustGson() {

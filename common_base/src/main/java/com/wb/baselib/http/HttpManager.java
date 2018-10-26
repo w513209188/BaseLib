@@ -59,21 +59,33 @@ public class HttpManager {
      * @return
      */
     public  Retrofit getRetrofit(OkHttpClient mclient){
-        if(mRetrofit==null){
-            synchronized (HttpManager.class){
-                Retrofit.Builder builder = new Retrofit.Builder()
-                        .baseUrl(mHttpConfig.getmBaseUrl())
-                        .client(mclient)
-                        .addCallAdapterFactory(RxJava2CallAdapterFactory.create());
-                if(mHttpConfig.isUseCustGson()){
-                    builder.addConverterFactory(MyGsonConverterFactory.create());
-                }else {
-                    builder.addConverterFactory(GsonConverterFactory.create());
+        if(getHttpConfig().isReshConfig()){
+            Retrofit.Builder builder = new Retrofit.Builder()
+                    .baseUrl(mHttpConfig.getmBaseUrl())
+                    .client(mclient)
+                    .addCallAdapterFactory(RxJava2CallAdapterFactory.create());
+            if(mHttpConfig.isUseCustGson()){
+                builder.addConverterFactory(MyGsonConverterFactory.create());
+            }else {
+                builder.addConverterFactory(GsonConverterFactory.create());
+            }
+            mRetrofit=builder.build();
+        }else {
+            if(mRetrofit==null){
+                synchronized (HttpManager.class){
+                    Retrofit.Builder builder = new Retrofit.Builder()
+                            .baseUrl(mHttpConfig.getmBaseUrl())
+                            .client(mclient)
+                            .addCallAdapterFactory(RxJava2CallAdapterFactory.create());
+                    if(mHttpConfig.isUseCustGson()){
+                        builder.addConverterFactory(MyGsonConverterFactory.create());
+                    }else {
+                        builder.addConverterFactory(GsonConverterFactory.create());
+                    }
+                    mRetrofit=builder.build();
                 }
-                mRetrofit=builder.build();
             }
         }
-        LogTools.e("进来了Gson"+mHttpConfig.isUseCustGson());
         return mRetrofit;
     }
 
@@ -83,36 +95,67 @@ public class HttpManager {
      * @return
      */
     public  OkHttpClient getClient(final Context context){
-        if(okHttpClient==null){
-            synchronized (HttpManager.class){
-                HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor();
-                loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
-                //缓存
-                int size = mHttpConfig.getmCacheSize()==0?20*1024*1024:mHttpConfig.getmCacheSize();
-                File cacheFile=null;
-                if(mHttpConfig.getmCacheFolder()==null){
-                    cacheFile = new File(context.getCacheDir(), "OkHttpCache");
-                }else {
-                    cacheFile=mHttpConfig.getmCacheFolder();
-                }
-                Cache cache = new Cache(cacheFile, size);
-                OkHttpClient.Builder builder = new OkHttpClient.Builder()
-                        .connectTimeout(mHttpConfig.getmConnectTimeout()==0?60:mHttpConfig.getmConnectTimeout(), TimeUnit.SECONDS)//连接超时时间
-                        .readTimeout(mHttpConfig.getmConnectTimeout()==0?60:mHttpConfig.getmConnectTimeout(), TimeUnit.SECONDS)//读取超时时间
-                        .writeTimeout(mHttpConfig.getmConnectTimeout()==0?60:mHttpConfig.getmConnectTimeout(), TimeUnit.SECONDS)//写入超时时间
-                        .cache(cache);//缓存
-                if(mHttpConfig.ismIsUseLog()){
-                    Log.e("日志被打印","-------");
-                    builder.addInterceptor(loggingInterceptor);
-                }
-                if(mHttpConfig.getmMapHeader()==null||mHttpConfig.getmMapHeader().size()==0){
-                }else {
-                    builder.addInterceptor(new RequestInterceptor());
-                }
-                okHttpClient=builder.build();
+        if(getHttpConfig().isReshConfig()){
+            HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor();
+            loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+            //缓存
+            int size = mHttpConfig.getmCacheSize()==0?20*1024*1024:mHttpConfig.getmCacheSize();
+            File cacheFile=null;
+            if(mHttpConfig.getmCacheFolder()==null){
+                cacheFile = new File(context.getCacheDir(), "OkHttpCache");
+            }else {
+                cacheFile=mHttpConfig.getmCacheFolder();
             }
+            Cache cache = new Cache(cacheFile, size);
+            OkHttpClient.Builder builder = new OkHttpClient.Builder()
+                    .connectTimeout(mHttpConfig.getmConnectTimeout()==0?60:mHttpConfig.getmConnectTimeout(), TimeUnit.SECONDS)//连接超时时间
+                    .readTimeout(mHttpConfig.getmConnectTimeout()==0?60:mHttpConfig.getmConnectTimeout(), TimeUnit.SECONDS)//读取超时时间
+                    .writeTimeout(mHttpConfig.getmConnectTimeout()==0?60:mHttpConfig.getmConnectTimeout(), TimeUnit.SECONDS)//写入超时时间
+                    .cache(cache);//缓存
+            if(mHttpConfig.ismIsUseLog()){
+                Log.e("日志被打印","-------");
+                builder.addInterceptor(loggingInterceptor);
+            }
+            if(mHttpConfig.getmMapHeader()==null||mHttpConfig.getmMapHeader().size()==0){
+            }else {
+                builder.addInterceptor(new RequestInterceptor());
+            }
+            okHttpClient=builder.build();
+        }else {
+            if(okHttpClient==null){
+                synchronized (HttpManager.class){
+                    HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor();
+                    loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+                    //缓存
+                    int size = mHttpConfig.getmCacheSize()==0?20*1024*1024:mHttpConfig.getmCacheSize();
+                    File cacheFile=null;
+                    if(mHttpConfig.getmCacheFolder()==null){
+                        cacheFile = new File(context.getCacheDir(), "OkHttpCache");
+                    }else {
+                        cacheFile=mHttpConfig.getmCacheFolder();
+                    }
+                    Cache cache = new Cache(cacheFile, size);
+                    OkHttpClient.Builder builder = new OkHttpClient.Builder()
+                            .connectTimeout(mHttpConfig.getmConnectTimeout()==0?60:mHttpConfig.getmConnectTimeout(), TimeUnit.SECONDS)//连接超时时间
+                            .readTimeout(mHttpConfig.getmConnectTimeout()==0?60:mHttpConfig.getmConnectTimeout(), TimeUnit.SECONDS)//读取超时时间
+                            .writeTimeout(mHttpConfig.getmConnectTimeout()==0?60:mHttpConfig.getmConnectTimeout(), TimeUnit.SECONDS)//写入超时时间
+                            .cache(cache);//缓存
+                    if(mHttpConfig.ismIsUseLog()){
+                        Log.e("日志被打印","-------");
+                        builder.addInterceptor(loggingInterceptor);
+                    }
+                    if(mHttpConfig.getmMapHeader()==null||mHttpConfig.getmMapHeader().size()==0){
+                    }else {
+                        builder.addInterceptor(new RequestInterceptor());
+                    }
+                    okHttpClient=builder.build();
+                }
 
+            }
         }
+
+
+
         return okHttpClient;
     }
     /**
