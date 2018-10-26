@@ -13,7 +13,6 @@ import retrofit2.Retrofit;
 
 public class HttpConfig {
     private static HttpConfig httpConfig;
-
     private String mBaseUrl;
     private int mConnectTimeout;
     private boolean mIsUseLog;
@@ -28,6 +27,7 @@ public class HttpConfig {
     private int mMaxRetryCount;
     private boolean isUseCustGson;
     private boolean isReshConfig;
+
     public static HttpConfig newInstance() {
 
         if (httpConfig == null) {
@@ -35,7 +35,6 @@ public class HttpConfig {
                 httpConfig = new HttpConfig();
             }
         }
-        Log.e("这个是",httpConfig.mBaseUrl);
         return httpConfig;
     }
 
@@ -46,22 +45,106 @@ public class HttpConfig {
             }
         }
         if (httpConfigBuilder.isReshConfig) {
-            httpConfig.mBaseUrl = httpConfigBuilder.mBaseUrl;
-            httpConfig.mConnectTimeout = httpConfigBuilder.mConnectTimeout;
-            httpConfig.mIsUseLog = httpConfigBuilder.mIsUseLog;
-            httpConfig.mIsUseCache = httpConfigBuilder.mIsUseCache;
-            httpConfig.mCacheFolder = httpConfigBuilder.mCacheFolder;
-            httpConfig.mMaxRetryCount = httpConfigBuilder.mMaxRetryCount;
-            httpConfig.isUseCustGson = httpConfigBuilder.isUseCustGson;
-            httpConfig.mTimeRetryDelay = httpConfigBuilder.mTimeRetryDelay;
-            httpConfig.mIsUseRetryWhenError = httpConfigBuilder.mIsUseRetryWhenError;
-            httpConfig.mMapHeader = httpConfigBuilder.mMapHeader;
-            httpConfig.mCacheTimeWithoutNet = httpConfigBuilder.mCacheTimeWithoutNet;
-            httpConfig.mCacheTimeWithNet = httpConfigBuilder.mCacheTimeWithNet;
-            httpConfig.mCacheSize = httpConfigBuilder.mCacheSize;
-            httpConfig.isReshConfig=httpConfigBuilder.isReshConfig;
+            if (httpConfigBuilder.mBaseUrl == null || httpConfigBuilder.mBaseUrl.equals("")) {
+                if (httpConfig.getmBaseUrl() == null || httpConfig.getmBaseUrl().equals("")) {
+                    throw new NullPointerException("mBaseUrl is not null");
+                }
+            } else {
+                if (!httpConfig.mBaseUrl.equals(httpConfigBuilder.mBaseUrl)) {
+                    httpConfig.mBaseUrl = httpConfigBuilder.mBaseUrl;
+                }
+            }
+
+            if (httpConfigBuilder.mConnectTimeout == 0) {
+            } else {
+                if (httpConfig.mConnectTimeout != httpConfigBuilder.mConnectTimeout) {
+                    httpConfig.mConnectTimeout = httpConfigBuilder.mConnectTimeout;
+                }
+            }
+
+            if (!httpConfigBuilder.mIsUseLog) {
+            } else {
+                if (httpConfig.mIsUseLog != httpConfigBuilder.mIsUseLog) {
+                    httpConfig.mIsUseLog = httpConfigBuilder.mIsUseLog;
+                }
+            }
+
+            if (!httpConfigBuilder.mIsUseCache) {
+            } else {
+                if (httpConfig.mIsUseCache != httpConfigBuilder.mIsUseCache) {
+                    httpConfig.mIsUseCache = httpConfigBuilder.mIsUseCache;
+                }
+            }
+
+            if (httpConfigBuilder.mCacheFolder == null) {
+            } else {
+                if (!httpConfig.mCacheFolder.getAbsolutePath().equals(httpConfigBuilder.mCacheFolder.getAbsolutePath())) {
+                    httpConfig.mCacheFolder = httpConfigBuilder.mCacheFolder;
+                }
+            }
+
+            if (httpConfigBuilder.mMaxRetryCount == 0) {
+            } else {
+                if (httpConfig.mMaxRetryCount != httpConfigBuilder.mMaxRetryCount) {
+                    httpConfig.mMaxRetryCount = httpConfigBuilder.mMaxRetryCount;
+                }
+            }
+            if (!httpConfigBuilder.isUseCustGson) {
+            } else {
+                if (httpConfig.isUseCustGson != httpConfigBuilder.isUseCustGson) {
+                    httpConfig.isUseCustGson = httpConfigBuilder.isUseCustGson;
+                }
+            }
+
+            if (httpConfigBuilder.mTimeRetryDelay == 0) {
+            } else {
+                if (httpConfig.mTimeRetryDelay != httpConfigBuilder.mTimeRetryDelay) {
+                    httpConfig.mTimeRetryDelay = httpConfigBuilder.mTimeRetryDelay;
+                }
+            }
+
+            if (!httpConfigBuilder.mIsUseRetryWhenError) {
+            } else {
+                if (httpConfig.mIsUseRetryWhenError != httpConfigBuilder.mIsUseRetryWhenError) {
+                    httpConfig.mIsUseRetryWhenError = httpConfigBuilder.mIsUseRetryWhenError;
+                }
+            }
+
+            if (httpConfigBuilder.mCacheTimeWithoutNet == 0) {
+            } else {
+                if (httpConfig.mCacheTimeWithoutNet != httpConfigBuilder.mCacheTimeWithoutNet) {
+                    httpConfig.mCacheTimeWithoutNet = httpConfigBuilder.mCacheTimeWithoutNet;
+                }
+            }
+
+            if (httpConfigBuilder.mCacheTimeWithNet == 0) {
+            } else {
+                if (httpConfig.mCacheTimeWithNet != httpConfigBuilder.mCacheTimeWithNet) {
+                    httpConfig.mCacheTimeWithNet = httpConfigBuilder.mCacheTimeWithNet;
+                }
+            }
+            if (httpConfigBuilder.mCacheSize == 0) {
+            } else {
+                if (httpConfig.mCacheSize != httpConfigBuilder.mCacheSize) {
+                    httpConfig.mCacheSize = httpConfigBuilder.mCacheSize;
+                }
+            }
+            if (!httpConfigBuilder.isReshConfig) {
+            } else {
+                if (httpConfig.isReshConfig != httpConfigBuilder.isReshConfig) {
+                    httpConfig.isReshConfig = httpConfigBuilder.isReshConfig;
+                }
+            }
+            if (httpConfigBuilder.mMapHeader == null || httpConfigBuilder.mMapHeader.size() == 0) {
+
+            } else {
+                for (Map.Entry<String, String> entry : httpConfigBuilder.mMapHeader.entrySet()) {
+                    httpConfig.mMapHeader.put(entry.getKey(), entry.getValue());
+                }
+
+            }
+
         }
-        Log.e("复杂",httpConfig.mBaseUrl);
         return httpConfig;
     }
 
@@ -87,7 +170,7 @@ public class HttpConfig {
         mTimeRetryDelay = httpConfigBuilder.mTimeRetryDelay;
         mMaxRetryCount = httpConfigBuilder.mMaxRetryCount;
         isUseCustGson = httpConfigBuilder.isUseCustGson;
-        isReshConfig=httpConfigBuilder.isReshConfig;
+        isReshConfig = httpConfigBuilder.isReshConfig;
     }
 
     public boolean isReshConfig() {

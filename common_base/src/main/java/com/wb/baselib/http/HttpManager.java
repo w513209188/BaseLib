@@ -1,4 +1,5 @@
 package com.wb.baselib.http;
+
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
@@ -37,57 +38,61 @@ public class HttpManager {
     private static HttpManager httpManager;
     Retrofit mRetrofit;
     OkHttpClient okHttpClient;
-    private   HttpConfig mHttpConfig;
-    public HttpConfig getHttpConfig(){
-        mHttpConfig=HttpConfig.newInstance();
+    private HttpConfig mHttpConfig;
+
+    public HttpConfig getHttpConfig() {
+        mHttpConfig = HttpConfig.newInstance();
         return mHttpConfig;
     }
+
     public HttpManager() {
         getHttpConfig();
         getRetrofit(getClient(AppUtils.getContext()));
     }
-    public static HttpManager newInstance(){
 
-        if(HttpConfig.newInstance().isReshConfig()){
-            httpManager=new HttpManager();
-        }else {
-            if(httpManager==null){
-                httpManager=new HttpManager();
+    public static HttpManager newInstance() {
+
+        if (HttpConfig.newInstance().isReshConfig()) {
+            httpManager = new HttpManager();
+        } else {
+            if (httpManager == null) {
+                httpManager = new HttpManager();
             }
         }
-                return httpManager;
-        }
+        return httpManager;
+    }
 
     /**
      * 获取到 Retrofit
+     *
      * @param mclient
      * @return
      */
-    public  Retrofit getRetrofit(OkHttpClient mclient){
-        if(getHttpConfig().isReshConfig()){
+    public Retrofit getRetrofit(OkHttpClient mclient) {
+        if (mHttpConfig.isReshConfig()) {
             Retrofit.Builder builder = new Retrofit.Builder()
                     .baseUrl(mHttpConfig.getmBaseUrl())
                     .client(mclient)
                     .addCallAdapterFactory(RxJava2CallAdapterFactory.create());
-            if(mHttpConfig.isUseCustGson()){
+            if (mHttpConfig.isUseCustGson()) {
                 builder.addConverterFactory(MyGsonConverterFactory.create());
-            }else {
+            } else {
                 builder.addConverterFactory(GsonConverterFactory.create());
             }
-            mRetrofit=builder.build();
-        }else {
-            if(mRetrofit==null){
-                synchronized (HttpManager.class){
+            mRetrofit = builder.build();
+        } else {
+            if (mRetrofit == null) {
+                synchronized (HttpManager.class) {
                     Retrofit.Builder builder = new Retrofit.Builder()
                             .baseUrl(mHttpConfig.getmBaseUrl())
                             .client(mclient)
                             .addCallAdapterFactory(RxJava2CallAdapterFactory.create());
-                    if(mHttpConfig.isUseCustGson()){
+                    if (mHttpConfig.isUseCustGson()) {
                         builder.addConverterFactory(MyGsonConverterFactory.create());
-                    }else {
+                    } else {
                         builder.addConverterFactory(GsonConverterFactory.create());
                     }
-                    mRetrofit=builder.build();
+                    mRetrofit = builder.build();
                 }
             }
         }
@@ -96,130 +101,139 @@ public class HttpManager {
 
     /**
      * 获取到Client
+     *
      * @param context
      * @return
      */
-    public  OkHttpClient getClient(final Context context){
-        if(getHttpConfig().isReshConfig()){
+    public OkHttpClient getClient(final Context context) {
+        if (mHttpConfig.isReshConfig()) {
             HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor();
             loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
             //缓存
-            int size = mHttpConfig.getmCacheSize()==0?20*1024*1024:mHttpConfig.getmCacheSize();
-            File cacheFile=null;
-            if(mHttpConfig.getmCacheFolder()==null){
+            int size = mHttpConfig.getmCacheSize() == 0 ? 20 * 1024 * 1024 : mHttpConfig.getmCacheSize();
+            File cacheFile = null;
+            if (mHttpConfig.getmCacheFolder() == null) {
                 cacheFile = new File(context.getCacheDir(), "OkHttpCache");
-            }else {
-                cacheFile=mHttpConfig.getmCacheFolder();
+            } else {
+                cacheFile = mHttpConfig.getmCacheFolder();
             }
             Cache cache = new Cache(cacheFile, size);
             OkHttpClient.Builder builder = new OkHttpClient.Builder()
-                    .connectTimeout(mHttpConfig.getmConnectTimeout()==0?60:mHttpConfig.getmConnectTimeout(), TimeUnit.SECONDS)//连接超时时间
-                    .readTimeout(mHttpConfig.getmConnectTimeout()==0?60:mHttpConfig.getmConnectTimeout(), TimeUnit.SECONDS)//读取超时时间
-                    .writeTimeout(mHttpConfig.getmConnectTimeout()==0?60:mHttpConfig.getmConnectTimeout(), TimeUnit.SECONDS)//写入超时时间
+                    .connectTimeout(mHttpConfig.getmConnectTimeout() == 0 ? 60 : mHttpConfig.getmConnectTimeout(), TimeUnit.SECONDS)//连接超时时间
+                    .readTimeout(mHttpConfig.getmConnectTimeout() == 0 ? 60 : mHttpConfig.getmConnectTimeout(), TimeUnit.SECONDS)//读取超时时间
+                    .writeTimeout(mHttpConfig.getmConnectTimeout() == 0 ? 60 : mHttpConfig.getmConnectTimeout(), TimeUnit.SECONDS)//写入超时时间
                     .cache(cache);//缓存
-            if(mHttpConfig.ismIsUseLog()){
-                Log.e("日志被打印","-------");
+            if (mHttpConfig.ismIsUseLog()) {
                 builder.addInterceptor(loggingInterceptor);
             }
-            if(mHttpConfig.getmMapHeader()==null||mHttpConfig.getmMapHeader().size()==0){
-            }else {
+            if (mHttpConfig.getmMapHeader() == null || mHttpConfig.getmMapHeader().size() == 0) {
+            } else {
                 builder.addInterceptor(new RequestInterceptor());
             }
-            okHttpClient=builder.build();
-        }else {
-            if(okHttpClient==null){
-                synchronized (HttpManager.class){
+            okHttpClient = builder.build();
+        } else {
+            if (okHttpClient == null) {
+                synchronized (HttpManager.class) {
                     HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor();
                     loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
                     //缓存
-                    int size = mHttpConfig.getmCacheSize()==0?20*1024*1024:mHttpConfig.getmCacheSize();
-                    File cacheFile=null;
-                    if(mHttpConfig.getmCacheFolder()==null){
+                    int size = mHttpConfig.getmCacheSize() == 0 ? 20 * 1024 * 1024 : mHttpConfig.getmCacheSize();
+                    File cacheFile = null;
+                    if (mHttpConfig.getmCacheFolder() == null) {
                         cacheFile = new File(context.getCacheDir(), "OkHttpCache");
-                    }else {
-                        cacheFile=mHttpConfig.getmCacheFolder();
+                    } else {
+                        cacheFile = mHttpConfig.getmCacheFolder();
                     }
                     Cache cache = new Cache(cacheFile, size);
                     OkHttpClient.Builder builder = new OkHttpClient.Builder()
-                            .connectTimeout(mHttpConfig.getmConnectTimeout()==0?60:mHttpConfig.getmConnectTimeout(), TimeUnit.SECONDS)//连接超时时间
-                            .readTimeout(mHttpConfig.getmConnectTimeout()==0?60:mHttpConfig.getmConnectTimeout(), TimeUnit.SECONDS)//读取超时时间
-                            .writeTimeout(mHttpConfig.getmConnectTimeout()==0?60:mHttpConfig.getmConnectTimeout(), TimeUnit.SECONDS)//写入超时时间
+                            .connectTimeout(mHttpConfig.getmConnectTimeout() == 0 ? 60 : mHttpConfig.getmConnectTimeout(), TimeUnit.SECONDS)//连接超时时间
+                            .readTimeout(mHttpConfig.getmConnectTimeout() == 0 ? 60 : mHttpConfig.getmConnectTimeout(), TimeUnit.SECONDS)//读取超时时间
+                            .writeTimeout(mHttpConfig.getmConnectTimeout() == 0 ? 60 : mHttpConfig.getmConnectTimeout(), TimeUnit.SECONDS)//写入超时时间
                             .cache(cache);//缓存
-                    if(mHttpConfig.ismIsUseLog()){
-                        Log.e("日志被打印","-------");
+                    if (mHttpConfig.ismIsUseLog()) {
                         builder.addInterceptor(loggingInterceptor);
                     }
-                    if(mHttpConfig.getmMapHeader()==null||mHttpConfig.getmMapHeader().size()==0){
-                    }else {
+                    if (mHttpConfig.getmMapHeader() == null || mHttpConfig.getmMapHeader().size() == 0) {
+                    } else {
                         builder.addInterceptor(new RequestInterceptor());
                     }
-                    okHttpClient=builder.build();
+                    okHttpClient = builder.build();
                 }
 
             }
         }
 
 
-
         return okHttpClient;
     }
+
     /**
      * 获取指定的网络请求Api接口
+     *
      * @param serviceClass ApiService的类型
      * @return 相应的ApiService
      */
     public <T> T getService(Class<T> serviceClass) {
-        T service =null;
+        T service = null;
         if (service == null) {
             service = mRetrofit.create(serviceClass);
         }
         return service;
     }
+
     /**
      * 普通的网络api请求，会根据全局配置判断是否使用失败重试机制
+     *
      * @param observable 请求
-     * @param observer 请求回调
+     * @param observer   请求回调
      */
     public void commonRequest(Observable observable, Observer observer, LifecycleTransformer transformer) {
-            Observable observable1=transformer==null?observable:observable.compose(transformer);
-            handleThread(observable1).subscribe(observer);
+        Observable observable1 = transformer == null ? observable : observable.compose(transformer);
+        handleThread(observable1).subscribe(observer);
     }
+
     /**
      * 普通的网络api请求，会根据全局配置判断是否使用失败重试机制
+     *
      * @param observable 请求
-     * @param observer 请求回调
+     * @param observer   请求回调
      */
     public void commonRequest(Observable observable, Observer observer) {
         handleThread(observable).subscribe(observer);
     }
+
     /**
      * 线程切换
+     *
      * @param observable
      * @return
      */
     private Observable handleThread(Observable observable) {
         return observable.subscribeOn(Schedulers.io()).unsubscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
     }
+
     /**
      * 设置头部拦截器
      */
-    private  class RequestInterceptor implements Interceptor{
+    private class RequestInterceptor implements Interceptor {
         @Override
         public Response intercept(Chain chain) throws IOException {
             Request.Builder builder = chain.request()
                     .newBuilder();
             for (Map.Entry<String, String> entry : mHttpConfig.getmMapHeader().entrySet()) {
-                builder .addHeader(entry.getKey(), entry.getValue());
+                builder.addHeader(entry.getKey(), entry.getValue());
             }
-            Request request=builder.build();
+            Request request = builder.build();
             return chain.proceed(request);
         }
     }
+
     /**
      * 用于生成 上传多个文件用的Map<String, RequestBody>
-     * @param map 保存了filekey和file的map
+     *
+     * @param map       保存了filekey和file的map
      * @param mediaType 上传文件的MediaType
-     * @return 上传多个文件用的Map<String, RequestBody>
+     * @return 上传多个文件用的Map<String   ,       RequestBody>
      */
     public Map<String, RequestBody> getRequestBodyMap(Map<String, File> map, MediaType mediaType) {
         final Map<String, RequestBody> bodyMap = new HashMap<>();

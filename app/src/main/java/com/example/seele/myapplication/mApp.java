@@ -28,11 +28,8 @@ public class mApp extends BaseApplication {
                 .bulider();
         AppConfigManager.newInstance().setAppConfig(appConfig);
 
-        Map<String,String> map=new HashMap<>();
-        map.put("Authorization","bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC90ZXN0LXB4Lmh1YXR1LmNvbVwvYXBpXC9hcHBcL2NoZWNrQ2FzIiwiaWF0IjoxNTQwMzUwNzM4LCJleHAiOjE1NDA2NTMxMzgsIm5iZiI6MTU0MDM1MDczOCwianRpIjoiWWNnbnN4UlJWNlNTYTJ2OSIsInN1YiI6MzA4NTAsInBydiI6ImI5MTI3OTk3OGYxMWFhN2JjNTY3MDQ4N2ZmZjAxZTIyODI1M2ZlNDgifQ.fMdAYDpuT0iJgBRfS5yP9O-L6TkkzmRQMsJRud1ly50");
         HttpConfig.HttpConfigBuilder httpConfig = new HttpConfig.HttpConfigBuilder()
                 .setmBaseUrl("http://test-px.huatu.com")
-                .setmMapHeader(map)
                 .setmIsUseLog(true);
         HttpConfig.newInstanceBuild(httpConfig);
     }
