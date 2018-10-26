@@ -47,9 +47,14 @@ public class HttpManager {
         getRetrofit(getClient(AppUtils.getContext()));
     }
     public static HttpManager newInstance(){
-                if(httpManager==null){
-                    httpManager=new HttpManager();
-                }
+
+        if(HttpConfig.newInstance().isReshConfig()){
+            httpManager=new HttpManager();
+        }else {
+            if(httpManager==null){
+                httpManager=new HttpManager();
+            }
+        }
                 return httpManager;
         }
 
