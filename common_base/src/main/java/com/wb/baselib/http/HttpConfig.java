@@ -45,6 +45,9 @@ public class HttpConfig {
                 httpConfig = new HttpConfig(httpConfigBuilder);
             }
         }
+        if( httpConfig.mMapHeader==null){
+            httpConfig.mMapHeader=new HashMap<>();
+        }
         if (httpConfigBuilder.isReshConfig) {
             if (httpConfigBuilder.mBaseUrl == null || httpConfigBuilder.mBaseUrl.equals("")) {
                 if (httpConfig.getmBaseUrl() == null || httpConfig.getmBaseUrl().equals("")) {
@@ -297,9 +300,6 @@ public class HttpConfig {
         }
 
         public HttpConfigBuilder setmMapHeader(Map<String, String> mMapHeader) {
-            if(this.mMapHeader==null){
-                this.mMapHeader=new HashMap<>();
-            }
             this.mMapHeader = mMapHeader;
             return this;
         }
