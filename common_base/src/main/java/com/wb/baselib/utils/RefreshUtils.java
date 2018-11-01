@@ -3,13 +3,11 @@ package com.wb.baselib.utils;
 import android.content.Context;
 import android.support.annotation.ColorRes;
 
-import com.scwang.smartrefresh.header.WaterDropHeader;
-import com.scwang.smartrefresh.layout.SmartRefreshLayout;
-import com.scwang.smartrefresh.layout.api.RefreshFooter;
-import com.scwang.smartrefresh.layout.api.RefreshHeader;
-import com.scwang.smartrefresh.layout.constant.SpinnerStyle;
-import com.scwang.smartrefresh.layout.footer.BallPulseFooter;
-import com.scwang.smartrefresh.layout.footer.ClassicsFooter;
+import com.wangbo.smartrefresh.header.WaterDropHeader;
+import com.wangbo.smartrefresh.layout.SmartRefreshLayout;
+import com.wangbo.smartrefresh.layout.api.RefreshFooter;
+import com.wangbo.smartrefresh.layout.api.RefreshHeader;
+import com.wangbo.smartrefresh.layout.footer.ClassicsFooter;
 import com.wb.baselib.R;
 
 /**

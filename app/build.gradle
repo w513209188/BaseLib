@@ -30,11 +30,16 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 //        implementation 'com.github.w513209188:BaseLib:v1.0.3'
+    compile project(':common_base')
 //    implementation project(':common_base',{
 //        exclude module: 'refresh-layout'
 //    })
-    implementation(project(':common_base')) {
-        exclude module: 'refresh-layout'
-    }
-    implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.5'
+//    implementation(project(':common_base')) {
+//        exclude module: 'refresh-layout'
+//    }
+//    implementation ('com.github.w513209188:htapp-lib:v1.0.1',{
+//        exclude module:'com.github.w513209188.BaseLib:refresh-layout'
+//    })
+////        implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.5'
+//    implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.5'
 }
