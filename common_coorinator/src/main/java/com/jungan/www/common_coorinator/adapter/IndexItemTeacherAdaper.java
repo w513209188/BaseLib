@@ -8,9 +8,11 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
+//import com.bumptech.glide.Glide;
 import com.jungan.www.common_coorinator.R;
 import com.jungan.www.common_coorinator.bean.TeacherBean;
+import com.squareup.picasso.Picasso;
+
 import java.util.List;
 public class IndexItemTeacherAdaper extends BaseAdapter {
     private List<TeacherBean> stringList;
@@ -50,7 +52,7 @@ public class IndexItemTeacherAdaper extends BaseAdapter {
             holder= (IndexItemTeacherHolder) convertView.getTag();
         }
 //        GlideManager.getInstance().setGlideRoundTransImage(holder.user_img,R.mipmap.ic_launcher,mContext,data.getAvatar());
-        Glide.with(mContext).load(data.getAvatar()).centerCrop().placeholder(R.drawable.qst_img).error(R.drawable.qst_img).into(holder.user_img);
+        Picasso.with(mContext).load(data.getAvatar()).centerCrop().placeholder(R.drawable.qst_img).error(R.drawable.qst_img).into(holder.user_img);
         holder.user_name.setText(data.getTeacher_name());
         return convertView;
     }

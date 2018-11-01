@@ -47,7 +47,7 @@ dependencies {
     compile 'com.github.hss01248:DialogUtil:1.2.5'
 
     //    api deps.swipebacklayout
-    compile 'cn.bingoogolapple:bga-swipebacklayout:1.0.5'
+//    compile 'cn.bingoogolapple:bga-swipebacklayout:1.0.5'
 
     //    api deps.statusbarutil
     compile 'com.jaeger.statusbarutil:library:1.4.0'
@@ -59,7 +59,7 @@ dependencies {
     compile 'com.pnikosis:materialish-progress:1.7'
 
     //    api deps.glide
-    compile 'com.github.bumptech.glide:glide:3.7.0'
+//    compile 'com.github.bumptech.glide:glide:3.7.0'
 
     //    api deps.finestwebview
     compile 'com.thefinestartist:finestwebview:1.2.7'
@@ -117,7 +117,7 @@ dependencies {
     implementation project(':refresh-header')
     implementation project(':refresh-layout')
     implementation 'top.zibin:Luban:1.1.8'
-
+    compile 'com.squareup.picasso:picasso:2.5.2'
     //    compile project(':common_postphoto')
     implementation 'me.jessyan:autosize:0.9.5'
     implementation project(':common_coorinator')

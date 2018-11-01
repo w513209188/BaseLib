@@ -33,7 +33,7 @@ import com.wb.baselib.view.ViewManager;
 import java.util.HashMap;
 import java.util.Map;
 
-import cn.bingoogolapple.swipebacklayout.BGASwipeBackHelper;
+//import cn.bingoogolapple.swipebacklayout.BGASwipeBackHelper;
 @Keep
 public abstract class BaseActivity extends RxAppCompatActivity implements View.OnClickListener {
 //    protected BGASwipeBackHelper mSwipeBackHelper;
