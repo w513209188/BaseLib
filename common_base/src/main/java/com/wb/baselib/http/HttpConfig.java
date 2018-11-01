@@ -3,6 +3,7 @@ package com.wb.baselib.http;
 import android.util.Log;
 
 import java.io.File;
+import java.util.HashMap;
 import java.util.Map;
 
 import javax.inject.Inject;
@@ -296,6 +297,9 @@ public class HttpConfig {
         }
 
         public HttpConfigBuilder setmMapHeader(Map<String, String> mMapHeader) {
+            if(this.mMapHeader==null){
+                this.mMapHeader=new HashMap<>();
+            }
             this.mMapHeader = mMapHeader;
             return this;
         }
