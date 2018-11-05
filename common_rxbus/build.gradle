@@ -15,7 +15,7 @@ android {
 
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
@@ -29,7 +29,6 @@ allprojects {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
         api deps.retrofit.retrofit
-////
         api deps.support.app_compat
 ////    compile 'com.squareup.retrofit2:retrofit:2.1.0'
         api deps.retrofit.rxjava

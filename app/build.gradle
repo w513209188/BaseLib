@@ -2,6 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 27
+
     defaultConfig {
         applicationId "com.example.seele.myapplication"
         minSdkVersion 16
@@ -16,7 +17,7 @@ android {
     }
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
@@ -29,8 +30,10 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+//    implementation 'com.squareup.retrofit2:retrofit:2.1.0'
 //        implementation 'com.github.w513209188:BaseLib:v1.0.3'
-    compile project(':common_base')
+//    compile project(':common_rxbus')
+        compile project(':common_base')
 //    implementation project(':common_base',{
 //        exclude module: 'refresh-layout'
 //    })
