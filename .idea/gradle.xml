@@ -13,8 +13,6 @@
             <option value="$PROJECT_DIR$/common_base" />
             <option value="$PROJECT_DIR$/common_coorinator" />
             <option value="$PROJECT_DIR$/common_down" />
-            <option value="$PROJECT_DIR$/common_jpush" />
-            <option value="$PROJECT_DIR$/common_jshape" />
             <option value="$PROJECT_DIR$/common_pop" />
             <option value="$PROJECT_DIR$/common_rxbus" />
             <option value="$PROJECT_DIR$/refresh-header" />
