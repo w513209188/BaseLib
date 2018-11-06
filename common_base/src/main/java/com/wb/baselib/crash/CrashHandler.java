@@ -179,7 +179,7 @@ public class CrashHandler implements UncaughtExceptionHandler {
 		new Thread() {
 			public void run() {
 				Looper.prepare() ;
-				Toast.makeText(mContext , "学霸君太累了，需要休息一会" , Toast.LENGTH_LONG).show() ;
+				Toast.makeText(mContext , "程序太累了，需要休息一会" , Toast.LENGTH_LONG).show() ;
 				Looper.loop() ;
 			}
 		}.start() ;
