@@ -28,7 +28,7 @@ public class ItemViewHolder extends RecyclerView.ViewHolder {
     }
 
 
-    public void bind(String s,boolean isReset) {
+    public void bind(String s,boolean isReset,int post) {
         String ids="0";
         if(s.equals("全部")){
             ids="0";
@@ -39,7 +39,9 @@ public class ItemViewHolder extends RecyclerView.ViewHolder {
         }else if(s.equals("音频课")){
             ids="3";
         }
-
+        if(post==1){
+            textView.setSelected(true);
+        }
         textView.setText(s);
         textView.setTag(ids);
         textView.setOnClickListener(new View.OnClickListener() {

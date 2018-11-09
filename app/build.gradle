@@ -33,7 +33,7 @@ dependencies {
 //    implementation 'com.squareup.retrofit2:retrofit:2.1.0'
 //        implementation 'com.github.w513209188:BaseLib:v1.0.3'
 //    compile project(':common_rxbus')
-        compile project(':common_base')
+//        compile project(':common_base')
 //    implementation project(':common_base',{
 //        exclude module: 'refresh-layout'
 //    })
