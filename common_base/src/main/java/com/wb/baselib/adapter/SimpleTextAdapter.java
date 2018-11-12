@@ -19,9 +19,10 @@ import java.util.List;
 public abstract class SimpleTextAdapter<T> extends ListBaseAdapter<T> {
 
     private final LayoutInflater inflater;
-
-    public SimpleTextAdapter(List<T> list, Context context) {
+    private int postType;
+    public SimpleTextAdapter(List<T> list, Context context,int type) {
         super(list, context);
+        this.postType=type;
         inflater = LayoutInflater.from(context);
     }
 
@@ -33,7 +34,11 @@ public abstract class SimpleTextAdapter<T> extends ListBaseAdapter<T> {
     public View getView(int position, View convertView, ViewGroup parent) {
         FilterItemHolder holder;
         if (convertView == null) {
-            convertView = inflater.inflate(R.layout.lv_item_filter, parent, false);
+            if(postType==1){
+                convertView = inflater.inflate(R.layout.lv_item_filter, parent, false);
+            }else {
+                convertView = inflater.inflate(R.layout.lv3_item_filter, parent, false);
+            }
             holder = new FilterItemHolder();
             holder.checkedTextView = (FilterCheckedTextView) convertView;
             holder.checkedTextView.setPadding(0, UIUtil.dp(context, 15), 0, UIUtil.dp(context, 15));
