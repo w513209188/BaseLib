@@ -19,7 +19,6 @@ public class ItemViewHolder extends RecyclerView.ViewHolder {
     private final FilterCheckedTextView textView;
     private View.OnClickListener mListener;
     private boolean isDj=false;
-
     public ItemViewHolder(Context mContext, ViewGroup parent, View.OnClickListener mListener) {
         super(UIUtil.infalte(mContext, R.layout.holder_item, parent));
         textView=itemView.findViewById( R.id.tv_item);
@@ -29,6 +28,7 @@ public class ItemViewHolder extends RecyclerView.ViewHolder {
 
 
     public void bind(String s,boolean isReset,int post) {
+        Log.e("点击了我","-----");
         String ids="0";
         if(s.equals("全部")){
             ids="0";
@@ -39,18 +39,28 @@ public class ItemViewHolder extends RecyclerView.ViewHolder {
         }else if(s.equals("音频课")){
             ids="3";
         }
-        if(isDj){
-            if(post==1){
-                textView.setSelected(false);
-            }
-        }else {
-            if(post==1){
-                textView.setSelected(true);
-            }
-        }
-
         textView.setText(s);
         textView.setTag(ids);
+        if(mListener==null){
+            Log.e("yes","yes");
+        }else {
+            if(post==1){
+                mListener.onClick(textView);
+            }
+            Log.e("no","no");
+        }
+//        if(!isDj){
+//            if(post==1){
+//                textView.setSelected(true);
+////                mListener.onClick(textView);
+//            }else {
+//                textView.setSelected(false);
+//            }
+//        }else {
+//            if(post==1){
+//                textView.setSelected(false);
+//            }
+//        }
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

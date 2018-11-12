@@ -127,8 +127,14 @@ public class BetterDoubleGridView extends LinearLayout implements View.OnClickLi
     }
 
     private void selectOption(View v){
+        Log.e("点击了","-----");
         /*adapter.setSelectOption(-1);
         adapter.notifyDataSetChanged();*/
+//        FilterUrl.instance().clear();
+//        adapter.setSelectOption(true);
+//        adapter.notifyDataSetChanged();
+
+
         textView = (TextView) v;
          text = (String) textView.getTag();
 
