@@ -18,7 +18,7 @@ public class ItemViewHolder extends RecyclerView.ViewHolder {
 
     private final FilterCheckedTextView textView;
     private View.OnClickListener mListener;
-
+    private boolean isDj=false;
 
     public ItemViewHolder(Context mContext, ViewGroup parent, View.OnClickListener mListener) {
         super(UIUtil.infalte(mContext, R.layout.holder_item, parent));
@@ -39,9 +39,16 @@ public class ItemViewHolder extends RecyclerView.ViewHolder {
         }else if(s.equals("音频课")){
             ids="3";
         }
-        if(post==1){
-            textView.setSelected(true);
+        if(isDj){
+            if(post==1){
+                textView.setSelected(false);
+            }
+        }else {
+            if(post==1){
+                textView.setSelected(true);
+            }
         }
+
         textView.setText(s);
         textView.setTag(ids);
         textView.setOnClickListener(new View.OnClickListener() {
@@ -49,7 +56,9 @@ public class ItemViewHolder extends RecyclerView.ViewHolder {
             public void onClick(View v) {
                 if (textView.getId() == v.getId()) {
                     textView.setSelected(true);
+                    isDj=true;
                 }else {
+                    isDj=true;
                     textView.setSelected(false);
                 }
             }

@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 
 import com.wb.baselib.R;
 import com.wb.baselib.bean.FilterChilderType;
+import com.wb.baselib.bean.FilterType;
 import com.wb.baselib.utils.UIUtil;
 import com.wb.baselib.view.FilterCheckedTextView;
 
@@ -45,12 +46,12 @@ public abstract class Simple3TextAdapter<T> extends ListBaseAdapter<T> {
         }
 
         T t = list.get(position);
-        holder.checkedTextView.setText(provideText(t).getChildName());
+        holder.checkedTextView.setText(provideText(t).desc);
 
         return convertView;
     }
 
-    public abstract FilterChilderType provideText(T t);
+    public abstract FilterType provideText(T t);
 
     protected void initCheckedTextView(FilterCheckedTextView checkedTextView) {
     }
