@@ -88,9 +88,8 @@ dependencies {
     //    api deps.retrofit.rxjava
     compile 'io.reactivex.rxjava2:rxjava:2.0.1'
 
-    //    api deps.gson
+    //
     compile 'com.google.code.gson:gson:2.4'
-
     //    api deps.okhttp.okhttp
     compile 'com.squareup.okhttp3:okhttp:3.4.2'
 
