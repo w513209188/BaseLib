@@ -6,6 +6,7 @@ import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.os.Build;
 import android.support.annotation.NonNull;
+import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.TabLayout;
@@ -50,7 +51,7 @@ public class CoordinatorTabLayout extends CoordinatorLayout {
 
     private TextView course_name_tv, course_start_tv, course_end_tv, course_teachername_tv, course_bmname_tv, course_ybm_tv, course_sy_tv, course1_name_tv, course1_ll_tv, course1_zjr_tv, course1_jj_tv;
     private LinearLayout zx_view, xx_view;
-
+    private AppBarLayout appBarLayout;
     public CoordinatorTabLayout(Context context) {
         super(context);
         mContext = context;
@@ -93,6 +94,13 @@ public class CoordinatorTabLayout extends CoordinatorLayout {
         course1_jj_tv = (TextView) findViewById(R.id.course1_jj_tv);
         zx_view = (LinearLayout) findViewById(R.id.zx_view);
         xx_view = (LinearLayout) findViewById(R.id.xx_view);
+        appBarLayout.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
+            @Override
+            public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
+
+            }
+        });
+
 
     }
 
